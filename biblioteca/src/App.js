@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Fragment} from 'react'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Home from './pages/Home';
+import MakeAppointment from './pages/Make_Appointment';
+import Login from './pages/Login';
+import Updatelinks from './pages/Updatelinks';
+import SeeAppointments from './pages/See_Apointments';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Router>
+        <Routes>
+          <Route path='/' exact element={<Home/>} />
+          <Route path='/cita' exact element={<MakeAppointment/>} />
+          <Route path='/ver-citas' exact element={<SeeAppointments/>}/>
+          <Route path='/iniciar-sesion' exact element={<Login/>} />
+          <Route path='/actualizar-links' exact element={<Updatelinks/>} />
+        </Routes>
+      </Router>
+    </Fragment>
   );
 }
 
